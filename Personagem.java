@@ -19,12 +19,27 @@ public class Personagem {
     }
 
     void comer() {
-        System.out.println(nome + " Comendo...");
+        if (fome>= 1){
+            System.out.println(nome + " Comendo...");
+            // operador ternário
+            energia = energia+1 >10 ? 10 : energia +1 ;
+            fome--;
+        }
+        else{
+            System.out.println(nome + " sem fome...");
+        }
     }
 
     void dormir() {
+        if (sono > 0){
         System.out.println(nome + " dormindo...");
+        sono -=1;
+        energia = Math.min(10, energia + 1);
     }
+    else{
+        System.out.println(nome + " sem sono...");
+    }
+}
 
     public static void main(String[] args) {
 
