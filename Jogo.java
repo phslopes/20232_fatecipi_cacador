@@ -11,6 +11,10 @@ public class Jogo {
         //ele tem a probabilidade 80% de dormir
         //10% de caçar
         //10% de comer
+        soneca.nome = "Soneca";
+        soneca.sono = 10;
+        soneca.energia = 0;
+        soneca.fome = 4;
         while(true){
             int oQuefazer = gerador.nextInt(3); //[0..3]
             switch(oQuefazer){
@@ -29,6 +33,23 @@ public class Jogo {
             personagem.energia,
             personagem.fome, 
             personagem.sono
+            );
+            System.out.println("---------------");
+            var oQueOSonecaVaifazer = gerador.nextDouble();
+            if (oQueOSonecaVaifazer <= 0.8){
+                soneca.dormir();
+            }
+            else if(oQueOSonecaVaifazer <= 0.9){
+                soneca.comer();
+            }
+            else{
+                soneca.cacar();
+            }
+            System.out.printf(
+            "e: %d, f: %d, s: %d\n", 
+            soneca.energia,
+            soneca.fome, 
+            soneca.sono
             );
             System.out.println("************");
         Thread.sleep(6000);
